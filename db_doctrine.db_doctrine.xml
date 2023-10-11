@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><database name="db_doctrine" schema="db_doctrine" type="MySQL - 5.5.5-10.4.28-MariaDB">
+   <tables>
+      <table catalog="db_doctrine" name="commentaire" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="contenu" nullable="false" remarks="" size="2147483647" type="LONGTEXT" typeCode="-1"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="post_id" nullable="true" remarks="" size="10" type="INT" typeCode="4">
+            <parent catalog="db_doctrine" column="id" foreignKey="FK_67F068BC4B89032C" implied="false" onDeleteCascade="false" table="post"/>
+         </column>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="IDX_67F068BC4B89032C" unique="false">
+            <column ascending="true" name="post_id"/>
+         </index>
+      </table>
+      <table catalog="db_doctrine" name="post" numRows="10" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT" typeCode="4">
+            <child catalog="db_doctrine" column="post_id" foreignKey="FK_67F068BC4B89032C" implied="false" onDeleteCascade="false" table="commentaire"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="titre" nullable="false" remarks="" size="255" type="VARCHAR" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="description" nullable="false" remarks="" size="2147483647" type="LONGTEXT" typeCode="-1"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+   </tables>
+</database>
